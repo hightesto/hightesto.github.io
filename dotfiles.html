@@ -1,7 +1,82 @@
 <!DOCTYPE html>
-<html>
-  <body>
-    <h1>HIGHTESTO DOTFILES
-    <a href="https://github.com/hightesto/dotfiles">- Github link</a>
-  </body>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HIGHTESTO DOTFILES</title>
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Tailwind Animation Plugins (optional für weiche Effekte) -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            serif: ['Merriweather', 'serif'],
+            sans: ['Inter', 'sans-serif'],
+          },
+          colors: {
+            'darkred': '#300000',
+            'darkerred': '#1a0000',
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="/assets/favicon-96x96.png" sizes="96x96" />
+  <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg" />
+  <link rel="shortcut icon" href="/assets/favicon.ico" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png" />
+  <meta name="apple-mobile-web-app-title" content="HIGHTESTO GITHUB PAGE" />
+  <link rel="manifest" href="/assets/site.webmanifest" />
+</head>
+
+<body class="bg-gradient-to-br from-black via-darkred to-darkerred text-white font-serif">
+
+  <!-- Header -->
+  <header class="p-6 bg-gradient-to-r from-black via-darkred to-darkerred shadow-md">
+    <div class="max-w-6xl mx-auto flex justify-between items-center">
+      <a href="index" class="text-sm uppercase font-bold tracking-wider hover:underline">
+        HIGHTESTO GITHUB PAGE
+      </a>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="py-24 text-center">
+    <h1 class="text-5xl md:text-6xl font-extrabold mb-6 font-serif">HIGHTESTO DOTFILES</h1>
+    <a href="https://github.com/hightesto/dotfiles" target="_blank" class="mt-4 inline-block bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-6 rounded-full transition-all duration-300 shadow-lg">
+      GitHub
+    </a>
+  </section>
+
+  <!-- Video Section -->
+  <section class="max-w-6xl mx-auto px-4 py-16">
+    <div class="overflow-hidden rounded-2xl shadow-2xl">
+      <video autoplay loop playsinline class="w-full h-auto rounded-2xl transition-transform duration-1000 ease-in-out hover:scale-105">
+        <source src="assets/demo-video.mp4" type="video/mp4">
+        Dein Browser unterstützt das Videoformat nicht.
+      </video>
+    </div>
+  </section>
+
+  <!-- Screenshots Section -->
+  <section class="max-w-6xl mx-auto px-4 py-16">
+    <div class="grid md:grid-cols-2 gap-10">
+      <!-- Beispielbilder, durch deine ersetzen -->
+      <img src="assets/screenshot1.jpg" alt="Screenshot 1" class="rounded-2xl shadow-xl transition-transform duration-700 hover:scale-105" />
+      <img src="assets/screenshot2.jpg" alt="Screenshot 2" class="rounded-2xl shadow-xl transition-transform duration-700 hover:scale-105" />
+      <img src="assets/screenshot3.jpg" alt="Screenshot 3" class="rounded-2xl shadow-xl transition-transform duration-700 hover:scale-105" />
+      <img src="assets/screenshot4.jpg" alt="Screenshot 4" class="rounded-2xl shadow-xl transition-transform duration-700 hover:scale-105" />
+    </div>
+  </section>
+
+</body>
 </html>
