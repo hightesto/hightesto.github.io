@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Important Update</title>
+  <style>
+    html, body {
+      margin: 0;
+      height: 100%;
+      background-color: black;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    #startBtn {
+      font-size: 24px;
+      padding: 20px 40px;
+      background-color: #111;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+    #player {
+      display: none;
+      width: 100vw;
+      height: 100vh;
+    }
+  </style>
+</head>
+<body>
+  <button id="startBtn">Click here to proceed</button>
+  <div id="player"></div>
+
+  <script>
+    let player;
+
+    document.getElementById('startBtn').addEventListener('click', function () {
+      this.style.display = 'none';
+      document.getElementById('player').style.display = 'block';
+      loadYouTubeAPI();
+    });
+
+    function loadYouTubeAPI() {
+      const tag = document.createElement('script');
+      tag.src = "https://www.youtube.com/iframe_api";
+      document.body.appendChild(tag);
+    }
+
+    function onYouTubeIframeAPIReady() {
+      player = new YT.Player('player', {
+        videoId: 'dQw4w9WgXcQ', // Rick Astley - Never Gonna Give You Up
+        playerVars: {
+          autoplay: 1,
+          controls: 0,
+          modestbranding: 1,
+          rel: 0,
+          showinfo: 0
+        },
+        events: {
+          onReady: (event) => {
+            event.target.setVolume(100);
+            event.target.playVideo();
+          }
+        }
+      });
+    }
+  </script>
+</body>
+</html>
