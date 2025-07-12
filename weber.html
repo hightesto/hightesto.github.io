@@ -13,7 +13,7 @@
     html, body {
       margin: 0;
       height: 100%;
-      background: linear-gradient(to bottom, #330000, #000000); /* dark red to black */
+      background: linear-gradient(to bottom, #330000, #000000);
       display: flex;
       justify-content: center;
       align-items: center;
@@ -22,10 +22,10 @@
     #startBtn {
       font-size: 22px;
       padding: 16px 36px;
-      background-color: #660000; /* Dunkelrot */
+      background-color: #660000;
       color: #fff;
       border: none;
-      border-radius: 40px; /* Rundlicher Knopf */
+      border-radius: 40px;
       cursor: pointer;
       box-shadow: 0 0 10px rgba(102, 0, 0, 0.6);
       transition: background-color 0.3s ease, transform 0.2s ease;
@@ -44,42 +44,22 @@
   </style>
 </head>
 <body>
-  <button id="startBtn">Hier klicken, um zu GitHub zu gelangen</button>
-  <div id="player"></div>
+  <button id="startBtn">Systemüberprüfung starten</button>
+  <video id="rickroll" src="assets/weber/rickroll.mp4" playsinline></video>
 
   <script>
-    let player;
+    const button = document.getElementById('startBtn');
+    const video = document.getElementById('rickroll');
 
-    document.getElementById('startBtn').addEventListener('click', function () {
-      this.style.display = 'none';
-      document.getElementById('player').style.display = 'block';
-      loadYouTubeAPI();
-    });
-
-    function loadYouTubeAPI() {
-      const tag = document.createElement('script');
-      tag.src = "https://www.youtube.com/iframe_api";
-      document.body.appendChild(tag);
-    }
-
-    function onYouTubeIframeAPIReady() {
-      player = new YT.Player('player', {
-        videoId: 'dQw4w9WgXcQ', // Rick Astley - Never Gonna Give You Up
-        playerVars: {
-          autoplay: 1,
-          controls: 0,
-          modestbranding: 1,
-          rel: 0,
-          showinfo: 0
-        },
-        events: {
-          onReady: (event) => {
-            event.target.setVolume(100);
-            event.target.playVideo();
-          }
-        }
+    button.addEventListener('click', () => {
+      button.style.display = 'none';
+      video.style.display = 'block';
+      video.volume = 1.0;
+      video.play().catch(err => {
+        alert("Ein unerwarteter Fehler ist aufgetreten. Bitte laden sie die Seite neu.");
+        console.error(err);
       });
-    }
+    });
   </script>
 </body>
 </html>
