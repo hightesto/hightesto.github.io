@@ -14,21 +14,30 @@
       margin: 0;
       height: 100%;
       background: linear-gradient(to bottom, #330000, #000000);
+      font-family: sans-serif;
+    }
+
+    .container {
       display: flex;
       justify-content: center;
       align-items: center;
-      font-family: sans-serif;
+      height: 100vh;
+      width: 100vw;
+      position: relative;
+      z-index: 1;
     }
+
     #startBtn {
       font-size: 22px;
       padding: 16px 36px;
       background-color: #660000;
-      color: #fff;
+      color: white;
       border: none;
       border-radius: 40px;
       cursor: pointer;
       box-shadow: 0 0 10px rgba(102, 0, 0, 0.6);
       transition: background-color 0.3s ease, transform 0.2s ease;
+      z-index: 2;
     }
 
     #startBtn:hover {
@@ -36,27 +45,41 @@
       transform: scale(1.05);
     }
 
-    #player {
-      display: none;
+    #rickroll {
+      position: absolute;
+      top: 0;
+      left: 0;
       width: 100vw;
       height: 100vh;
+      object-fit: cover;
+      display: none;
+      z-index: 0;
     }
   </style>
 </head>
 <body>
-  <button id="startBtn">Systemüberprüfung starten</button>
-  <video id="rickroll" src="assets/weber/rickroll.mp4" playsinline></video>
+
+  <!-- Video -->
+  <video id="rickroll" src="assets/rickroll.mp4" playsinline></video>
+
+  <!-- Button Container -->
+  <div class="container">
+    <button id="startBtn">Hier klicken, um zu GitHub zu gelangen</button>
+  </div>
 
   <script>
     const button = document.getElementById('startBtn');
     const video = document.getElementById('rickroll');
 
     button.addEventListener('click', () => {
+      // Button ausblenden
       button.style.display = 'none';
+
+      // Video anzeigen & starten
       video.style.display = 'block';
       video.volume = 1.0;
       video.play().catch(err => {
-        alert("Ein unerwarteter Fehler ist aufgetreten. Bitte laden sie die Seite neu.");
+        alert("Ein unerwarteter Fehler ist aufgetreten. Bitte die Webseite neu laden.");
         console.error(err);
       });
     });
